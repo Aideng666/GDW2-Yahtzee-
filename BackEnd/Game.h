@@ -94,8 +94,11 @@ public:
 		std::cout << "Game Over In " << turnNum << " Turns.\n\n";
 		for (int i = 0; i < players.size(); i++)
 		{
+			players.at(i)->scoreSheet.getScore();
 			std::cout << "Player " << i + 1 << ", " << players.at(i)->name << ", got a score of " << players.at(i)->scoreSheet.score << "!\n";
 		}
+		std::string z;
+		std::cin >> z;
 	}
 	Game() { dice = Dice(); }
 };

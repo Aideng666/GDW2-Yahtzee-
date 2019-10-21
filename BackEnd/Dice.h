@@ -91,7 +91,6 @@ public:
 				list[5][i] = "| 0     0 |";
 				list[6][i] = " --------- ";
 			}
-
 		} // End of For Loop
 
 		for (int i = 0; i < 7; i++) {
@@ -101,7 +100,7 @@ public:
 			}
 			std::cout << std::endl;
 		}
-
+		std::cout << std::endl;
 
 	}
 };
