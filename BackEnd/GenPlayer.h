@@ -2,6 +2,7 @@
 #include "ScoreSheet.h"
 #include "Dice.h"
 #include <iostream>
+using namespace std;
 class GenPlayer
 {
 public:
@@ -21,13 +22,23 @@ public:
 	{
 		if (state)
 		{
+
+			cout << " _____________________________________________________\n";
+			cout << "|	    __   __    _     _                        |\n";
+			cout << "|	    \\ \\ / /   | |   | |                       |\n";
+			cout << "|	     \\ V /__ _| |__ | |_ _______  ___         |\n";
+			cout << "|	      \\ // _` | '_ \\| __|_  / _ \\/ _ \\        |\n";
+			cout << "|	      | | (_| | | | | |_ / /  __/  __/        |\n";
+			cout << "|	      \\_/\\__,_|_| |_|\\__/___\\___|\\___|        |\n";
+
 			for (int i = 0; i < 2; i++)
 			{
-				std::cout << "Section " << i + 1 << ")\n";
-				std::cout << scoreSheet.sections.at(i)->Display();
+				cout << "|-----------------------------------------------------|\n";
+				std::cout << "| Section " << i + 1 << ")\n";
+				std::cout << "| " << scoreSheet.sections.at(i)->Display();
 				for (int j = 0; j < scoreSheet.sections.at(i)->spots.size(); j++)
 				{
-					std::cout << j + 1 << ") " << scoreSheet.sections.at(i)->spots.at(j)->name;
+					std::cout << "| " << j + 1 << ") " << scoreSheet.sections.at(i)->spots.at(j)->name;
 					if (scoreSheet.sections.at(i)->spots.at(j)->taken)
 						std::cout << " - Taken\n";
 					else
@@ -35,17 +46,28 @@ public:
 				}
 			}
 			scoreSheet.getScore();
-			std::cout << "Total Score " << scoreSheet.score << ":\n\n";
+			std::cout << "| Total Score " << scoreSheet.score << ":\n";
+
+			cout << "|-----------------------------------------------------|\n\n";
 		}
 		else
 		{
+			cout << " _____________________________________________________\n";
+			cout << "|	    __   __    _     _                        |\n";
+			cout << "|	    \\ \\ / /   | |   | |                       |\n";
+			cout << "|	     \\ V /__ _| |__ | |_ _______  ___         |\n";
+			cout << "|	      \\ // _` | '_ \\| __|_  / _ \\/ _ \\        |\n";
+			cout << "|	      | | (_| | | | | |_ / /  __/  __/        |\n";
+			cout << "|	      \\_/\\__,_|_| |_|\\__/___\\___|\\___|        |\n";
+
 			for (int i = 0; i < 2; i++)
 			{
-				std::cout << "Section " << i + 1 << ")\n";
-				std::cout << scoreSheet.sections.at(i)->Display();
+				cout << "|-----------------------------------------------------|\n";
+				std::cout << "| Section " << i + 1 << ")\n";
+				std::cout << "| " << scoreSheet.sections.at(i)->Display();
 				for (int j = 0; j < scoreSheet.sections.at(i)->spots.size(); j++)
 				{
-					std::cout << j + 1 << ") " << scoreSheet.sections.at(i)->spots.at(j)->name << " - ";
+					std::cout << "| " << j + 1 << ") " << scoreSheet.sections.at(i)->spots.at(j)->name << " - ";
 					if (!scoreSheet.sections.at(i)->spots.at(j)->taken)
 						std::cout << scoreSheet.sections.at(i)->spots.at(j)->points(dice.vals) << '\n';
 					else
@@ -53,7 +75,8 @@ public:
 				}
 			}
 			scoreSheet.getScore();
-			std::cout << "Total Score " << scoreSheet.score << ":\n\n";
+			std::cout << "| Total Score " << scoreSheet.score << ":\n";
+			cout << "|-----------------------------------------------------|\n\n";
 		}
 	}
 	void AmDone(int i)
