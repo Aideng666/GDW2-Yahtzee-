@@ -24,13 +24,13 @@ public:
 			ShowSheet(true);
 
 			dice.Roll();
-			std::cout << "Dice = " << dice.Display() << '\n';
+			dice.Display();
 
 			dice.Roll(GetRolls());
-			std::cout << "Dice = " << dice.Display() << '\n';
+			dice.Display();
 
 			dice.Roll(GetRolls());
-			std::cout << "Dice = " << dice.Display() << '\n';
+			dice.Display();
 
 			ShowSheet(false);
 

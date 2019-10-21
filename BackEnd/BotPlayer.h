@@ -19,11 +19,11 @@ public:
 		ShowSheet(true);
 
 		dice.Roll();
-		std::cout << "Dice = " << dice.Display() << '\n';
+		dice.Display();
 		dice.Roll(getRolls(dice.vals));
-		std::cout << "Dice = " << dice.Display() << '\n';
+		dice.Display();
 		dice.Roll(getRolls(dice.vals));
-		std::cout << "Dice = " << dice.Display() << '\n';
+		dice.Display();
 
 		ShowSheet(false);
 

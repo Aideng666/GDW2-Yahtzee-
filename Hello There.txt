@@ -1,3 +1,11 @@
 Sup Doods
 
+<<<<<<< HEAD
 Nah Much, How Bout You?
+=======
+Nah Much, How Bout You?
+
+Sup Doods
+
+Nm dood
+>>>>>>> master
