@@ -36,7 +36,7 @@ public:
 	}
 	std::string Display()
 	{
-		return "Section score = " + std::to_string(score) + "\nBonus minimum is 63\nSectionBonus = " + std::to_string(bonus) + '\n';
+		return "Section score = " + std::to_string(score) + "\n| Bonus minimum is 63\n| SectionBonus = " + std::to_string(bonus) + '\n';
 	}
 private:
 	int minBonus;
