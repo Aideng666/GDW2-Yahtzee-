@@ -54,7 +54,7 @@ private:
 	const float houseScore{ 0.8f };
 	const float straightScores[2]{ 0.6f, 0.7f};
 	const float chanceScore{ 0.3f };
-	const float bias[14]{ 7.0f, 6.0f, 5.0f, 3.0f, 2.0f, 1.0f, 0.5f, 0.75f, 1.0f, 1.5f, 2.0f, 10.0f, 0.7f, 10.0f };
+	const float bias[14]{ 4.0f, 4.0f, 4.0f, 3.0f, 2.0f, 1.0f, 0.5f, 0.75f, 0.75f, 1.5f, 2.0f, 10.0f, 0.45f, 10.0f };
 	int pick(int die[5])
 	{
 		std::vector<float> scores;
@@ -284,7 +284,7 @@ private:
 			int q(0);
 			for (int i = 0; i < 6; i++)
 			{
-				if (r < s[i])
+				if (r <= s[i])
 				{
 					r = s[i];
 					q = i;
@@ -293,7 +293,7 @@ private:
 			r++;
 			for (int i = 0; i < 5; i++)
 			{
-				t[i] = die[i] != q;
+				t[i] = die[i] != q + 1;
 			}
 			break;
 		}
@@ -308,7 +308,7 @@ private:
 			int q(0);
 			for (int i = 0; i < 6; i++)
 			{
-				if (r < s[i])
+				if (r <= s[i])
 				{
 					r = s[i];
 					q = i;
@@ -317,7 +317,7 @@ private:
 			r++;
 			for (int i = 0; i < 5; i++)
 			{
-				t[i] = die[i] != q;
+				t[i] = die[i] != q + 1;
 			}
 			break;
 		}
@@ -363,7 +363,7 @@ private:
 					min = die[i];
 				}
 			}
-			bool h[6]{ 0, 0, 0, 0, 0, 0 };
+			bool h[6]{ false, false, false, false, false, false };
 			for (int i = 0; i < 5; i++)
 			{
 				if (!h[die[i] - 1])
@@ -482,9 +482,7 @@ private:
 				t = i;
 			}
 			scores[i] = scoreSheet.sections.at(s)->spots.at(t)->points(dice.vals) * bias[i]; 
-			std::cout << scores[i] << '\n';
 		}
-		std::cout << '\n';
 		for (int i = 0; i < 14; i++)
 		{
 			if (scores[i] > max)

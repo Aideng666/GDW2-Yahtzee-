@@ -8,49 +8,31 @@ public:
 	{
 		if (!taken)
 		{
-			int t[5]{ 0, 0, 0, 0, 0 };
-			int c = 1;
-			bool flipFlop(false);
-			bool done(false);
+			int t[6]{ 0, 0, 0, 0, 0, 0 };
 			for (int i = 0; i < 5; i++)
 			{
-				t[i] = dice[i];
+				t[dice[i] - 1]++;
 			}
-			for (int i = 0; i < 4; i++)
+			bool r = false;
+			for (int i = 0; i < 7 - val; i++)
 			{
-				for (int j = 0; j < 5 - i - 1; j++)
+				if (!r)
 				{
-					if (t[j] > t[j + 1])
+					bool s = true;
+					for (int j = 0; j < val; j++)
 					{
-						int temp = t[j + 1];
-						t[j + 1] = t[j];
-						t[j] = temp;
-					}
-				}
-			}
-			for (int i = 1; i < 5; i++)
-			{
-				if (t[i] == t[i - 1] + 1)
-				{
-					if (!done)
-					{
-						c++;
-						if (!flipFlop)
+						if (s && t[j + i] == 0)
 						{
-							flipFlop = !flipFlop;
+							s = false;
 						}
 					}
-				}
-				else
-				{
-					if (flipFlop)
+					if (s)
 					{
-						flipFlop = !flipFlop;
-						done = !done;
+						r = s;
 					}
 				}
 			}
-			if (c >= val)
+			if (r)
 			{
 				return (10 * val) - 10;
 			}
