@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <string>
 class Dice
 {
 public:
@@ -95,12 +96,10 @@ public:
 
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 5; j++) {
-
 				std::cout << list[i][j] << "\t";
 			}
 			std::cout << std::endl;
 		}
 		std::cout << std::endl;
-
 	}
 };

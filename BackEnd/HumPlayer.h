@@ -15,6 +15,7 @@ public:
 		scoreSheet.checkdone();
 		if (!scoreSheet.done)
 		{
+			char o;
 			std::cout << "Player " << j + 1 << ", " << name << ", enter anything to play! - ";
 			std::string z;
 			std::cin >> z;
@@ -26,11 +27,23 @@ public:
 			dice.Roll();
 			dice.Display();
 
-			dice.Roll(GetRolls());
-			dice.Display();
+			std::cout << "Would you like to re roll any dice? If yes, enter 'y'. - ";
+			std::cin >> o;
+			std::cout << "\n";
+			if (o == 'y')
+			{
+				dice.Roll(GetRolls());
+				dice.Display();
 
-			dice.Roll(GetRolls());
-			dice.Display();
+				std::cout << "Would you like to re roll any dice? If yes, enter 'y'. - ";
+				std::cin >> o;
+				std::cout << "\n";
+				if (o == 'y')
+				{
+					dice.Roll(GetRolls());
+					dice.Display();
+				}
+			}
 
 			ShowSheet(false);
 
