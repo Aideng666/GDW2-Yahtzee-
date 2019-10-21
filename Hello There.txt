@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
 Sup Doods
 
 Nah Much, How Bout You?
+=======
+Sup Doods
+>>>>>>> Stashed changes
