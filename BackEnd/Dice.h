@@ -11,11 +11,7 @@ public:
 		{
 			vals[i] = rand() % 6 + 1;
 		}
-		//vals[0] = 4;
-		//vals[1] = 2;
-		//vals[2] = 1;
-		//vals[3] = 3; 
-		//vals[4] = 6;
+
 	}
 	void Roll(std::vector<bool> v)
 	{
@@ -27,35 +23,85 @@ public:
 			}
 		}
 	}
-	std::string Display()
+
+	void Display()
 	{
-		std::string t;
-		for (int i = 0; i < 5; i++)
-		{
-			switch (vals[i])
-			{
-			case 1:
-				t += '1';
-				break;
-			case 2:
-				t += '2';
-				break;
-			case 3:
-				t += '3';
-				break;
-			case 4:
-				t += '4';
-				break;
-			case 5:
-				t += '5';
-				break;
-			case 6:
-				t += '6';
-				break;
+
+		std::string list[7][5];
+
+		for (int i = 0; i < 5; i++) {
+			if (vals[i] == 1) {
+
+				list[0][i] = " --------- ";
+				list[1][i] = "|         |";
+				list[2][i] = "|         |";
+				list[3][i] = "|    0    |";
+				list[4][i] = "|         |";
+				list[5][i] = "|         |";
+				list[6][i] = " --------- ";
+
 			}
-			t += ' ';
+			else if (vals[i] == 2) {
+
+				list[0][i] = " --------- ";
+				list[1][i] = "|         |";
+				list[2][i] = "|         |";
+				list[3][i] = "| 0     0 |";
+				list[4][i] = "|         |";
+				list[5][i] = "|         |";
+				list[6][i] = " --------- ";
+			}
+			else if (vals[i] == 3) {
+
+				list[0][i] = " --------- ";
+				list[1][i] = "|         |";
+				list[2][i] = "|    0    |";
+				list[3][i] = "|         |";
+				list[4][i] = "| 0     0 |";
+				list[5][i] = "|         |";
+				list[6][i] = " --------- ";
+			}
+			else if (vals[i] == 4) {
+
+				list[0][i] = " --------- ";
+				list[1][i] = "|         |";
+				list[2][i] = "| 0     0 |";
+				list[3][i] = "|         |";
+				list[4][i] = "| 0     0 |";
+				list[5][i] = "|         |";
+				list[6][i] = " --------- ";
+			}
+			else if (vals[i] == 5) {
+
+				list[0][i] = " --------- ";
+				list[1][i] = "|         |";
+				list[2][i] = "| 0     0 |";
+				list[3][i] = "|    0    |";
+				list[4][i] = "| 0     0 |";
+				list[5][i] = "|         |";
+				list[6][i] = " --------- ";
+			}
+			else if (vals[i] == 6) {
+
+				list[0][i] = " --------- ";
+				list[1][i] = "| 0     0 |";
+				list[2][i] = "|         |";
+				list[3][i] = "| 0     0 |";
+				list[4][i] = "|         |";
+				list[5][i] = "| 0     0 |";
+				list[6][i] = " --------- ";
+			}
+
+		} // End of For Loop
+
+		for (int i = 0; i < 7; i++) {
+			for (int j = 0; j < 5; j++) {
+
+				std::cout << list[i][j] << "\t";
+			}
+			std::cout << std::endl;
 		}
-		t += '\n';
-		return t;
+
+
 	}
 };
