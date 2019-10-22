@@ -15,7 +15,10 @@ public:
 		scoreSheet.checkdone();
 		if (!scoreSheet.done)
 		{
-			char o;
+			std::string s;
+			int t0 = 0;
+			int t1 = 0;
+			bool cont = false;
 			std::cout << "Player " << j + 1 << ", " << name << ", enter anything to play! - ";
 			std::string z;
 			std::cin >> z;
@@ -27,18 +30,55 @@ public:
 			dice.Roll();
 			dice.Display();
 
-			std::cout << "Would you like to re roll any dice? If yes, enter 'y'. - ";
-			std::cin >> o;
-			std::cout << "\n";
-			if (o == 'y')
+			while (!cont)
+			{
+				std::cout << "Would you like to re roll any dice? If yes, enter 1. - ";
+				std::cin >> s;
+				try
+				{
+					t0 = std::stoi(s);
+					if (t0 > 0)
+					{
+						cont = true;
+					}
+					else
+					{
+						std::cout << "Please input an int greater than zero.\n";
+					}
+				}
+				catch (std::invalid_argument& e)
+				{
+					std::cout << "Please input an int.\n";
+				}
+			}
+			if (t0 == 1)
 			{
 				dice.Roll(GetRolls());
 				dice.Display();
+				cont = false;
 
-				std::cout << "Would you like to re roll any dice? If yes, enter 'y'. - ";
-				std::cin >> o;
-				std::cout << "\n";
-				if (o == 'y')
+				while (!cont)
+				{
+					std::cout << "Would you like to re roll any dice? If yes, enter 1. - ";
+					std::cin >> s;
+					try
+					{
+						t1 = std::stoi(s);
+						if (t1 > 0)
+						{
+							cont = true;
+						}
+						else
+						{
+							std::cout << "Please input an int greater than zero.\n";
+						}
+					}
+					catch (std::invalid_argument& e)
+					{
+						std::cout << "Please input an int.\n";
+					}
+				}
+				if (t1 == 1)
 				{
 					dice.Roll(GetRolls());
 					dice.Display();
@@ -47,11 +87,11 @@ public:
 
 			ShowSheet(false);
 
-			std::vector<int> t;
-			t = GetScratch();
+			std::vector<int> r;
+			r = GetScratch();
 			
-			std::cout << "\nYou got " << scoreSheet.sections.at(t.at(0))->spots.at(t.at(1))->points(dice.vals) << " points!\nYour new score is " << scoreSheet.score + scoreSheet.sections.at(t.at(0))->spots.at(t.at(1))->points(dice.vals) << ".\n";
-			scoreSheet.sections.at(t.at(0))->scratch(t.at(1), dice.vals);
+			std::cout << "\nYou got " << scoreSheet.sections.at(r.at(0))->spots.at(r.at(1))->points(dice.vals) << " points!\nYour new score is " << scoreSheet.score + scoreSheet.sections.at(r.at(0))->spots.at(r.at(1))->points(dice.vals) << ".\n";
+			scoreSheet.sections.at(r.at(0))->scratch(r.at(1), dice.vals);
 
 			AmDone(i);
 		}

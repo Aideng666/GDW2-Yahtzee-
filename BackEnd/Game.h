@@ -34,19 +34,27 @@ public:
 		std::vector<std::string> n;
 		bool cont(false);
 		std::string s;
-		int t;
+		int t = 0;
+		std::cout << "Thank you for playing yahtzee!";
 		while (!cont)
 		{
-			std::cout << "Thank you for playing yahtzee!\nHow many players will be playing? - ";
+			std::cout << "\nHow many players will be playing? - ";
 			std::cin >> s;
 			try
 			{
 				t = std::stoi(s);
-				cont = true;
+				if (t > 0)
+				{
+					cont = true;
+				}
+				else
+				{
+					std::cout << "Please input an int greater than zero.";
+				}
 			}
 			catch (std::invalid_argument& e)
 			{
-				std::cout << "Please input an int.\n";
+				std::cout << "Please input an int.";
 			}
 		}
 		r.resize(t);
