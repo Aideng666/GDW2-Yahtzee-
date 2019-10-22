@@ -18,11 +18,11 @@ public:
 			{
 			case 1:
 				players.at(i) = new HumPlayer(dice, n.at(i));
-				std::cout << 'p' << i + 1 << ", " << n.at(i) << ", is a human.\n";
+				std::cout << "Player " << i + 1 << ", " << n.at(i) << ", is a human.\n";
 				break;
 			default:
 				players.at(i) = new BotPlayer(dice, n.at(i));
-				std::cout << 'p' << i + 1 << ", " << n.at(i) << ", is a bot.\n";
+				std::cout << "Player " << i + 1 << ", " << n.at(i) << ", is a bot.\n";
 				break;
 			}
 		}
@@ -35,21 +35,28 @@ public:
 		bool cont(false);
 		std::string s;
 		int t = 0;
-		std::cout << "Thank you for playing yahtzee!";
+		std::cout << "Thank you for playing Yahtzee!";
 		while (!cont)
 		{
-			std::cout << "\nHow many players will be playing? - ";
+			std::cout << "\nHow many players will be playing?\nThere can be up to 8 players. - ";
 			std::cin >> s;
 			try
 			{
 				t = std::stoi(s);
 				if (t > 0)
 				{
-					cont = true;
+					if (t < 9)
+					{
+						cont = true;
+					}
+					else
+					{
+						std::cout << "Please input an int less than or equal to 8.";
+					}
 				}
 				else
 				{
-					std::cout << "Please input an int greater than zero.";
+					std::cout << "Please input an int greater than 0.";
 				}
 			}
 			catch (std::invalid_argument& e)
@@ -89,14 +96,12 @@ public:
 		while (!end)
 		{
 			for (int i = 0; i < players.size(); i++)
-			{
 				players.at(i)->takeTurn(i, turnNum);
-			}
+			end = true;
 			for (int i = 0; i < players.size(); i++)
-			{
-				if (players.at(i)->scoreSheet.done)
-					end = true;
-			}
+				if (end)
+					if (!players.at(i)->scoreSheet.done)
+						end = false;
 			turnNum++;
 		}
 		std::cout << "Game Over In " << turnNum << " Turns.\n\n";
