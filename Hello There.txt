@@ -3,3 +3,7 @@ Sup Doods
 Nah Much, How Bout You?
 
 Nm dood
+
+-------------------------------------
+Include Winmm.lib as a dependency
+-------------------------------------
