@@ -2,6 +2,8 @@
 #include "GenPlayer.h"
 #include <iostream>
 #include <string>
+#include <windows.h>
+#include <mmsystem.h>
 class HumPlayer :
 	public GenPlayer
 {
@@ -22,6 +24,7 @@ public:
 			std::cout << "Player " << j + 1 << ", " << name << ", enter anything to play! - ";
 			std::string z;
 			std::cin >> z;
+			PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 			std::cout << std::string(100, '\n');
 			std::cout << name << ", Player " << j + 1 << " this is your turn " << i + 1 << "\n\n";
 
@@ -34,6 +37,7 @@ public:
 			{
 				std::cout << "Would you like to re roll any dice? If yes, enter 1. - ";
 				std::cin >> s;
+				PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 				try
 				{
 					t0 = std::stoi(s);
@@ -61,6 +65,7 @@ public:
 				{
 					std::cout << "Would you like to re roll any dice? If yes, enter 1. - ";
 					std::cin >> s;
+					PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 					try
 					{
 						t1 = std::stoi(s);
@@ -109,6 +114,7 @@ public:
 			{
 				std::cout << "Would you like to re roll die number " << k + 1 << "? if so enter one. - ";
 				std::cin >> s;
+				PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 				try
 				{
 					t = std::stoi(s);
@@ -137,6 +143,7 @@ public:
 			{
 				std::cout << "Would you like to claim a spot from section 1 or 2? - ";
 				std::cin >> s;
+				PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 				try
 				{
 					t.at(0) = std::stoi(s) - 1;
@@ -159,6 +166,7 @@ public:
 			{
 				std::cout << "Would you like to claim spot 1 through " << scoreSheet.sections.at(t.at(0))->spots.size() << "? - ";
 				std::cin >> s;
+				PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 				try
 				{
 					t.at(1) = std::stoi(s) - 1;

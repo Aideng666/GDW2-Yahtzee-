@@ -1,5 +1,7 @@
 #pragma once
 #include "SheetSpot.h"
+#include <windows.h>
+#include <mmsystem.h>
 
 class YahtzeeBonusSpot :
 	public SheetSpot
@@ -17,8 +19,10 @@ public:
 					if (t)
 						t = dice[i] == dice[i - 1];
 				}
-				if (t)
+				if (t) {
+					PlaySound(TEXT("Yahtzee.wav"), NULL, SND_FILENAME);
 					return (100);
+				}
 			}
 		}
 		return (0);

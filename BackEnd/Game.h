@@ -3,6 +3,8 @@
 #include "GenPlayer.h"
 #include "BotPlayer.h"
 #include "HumPlayer.h"
+#include <windows.h>
+#include <mmsystem.h>
 class Game
 {
 public:
@@ -40,6 +42,7 @@ public:
 		{
 			std::cout << "\nHow many players will be playing?\nThere can be up to 8 players. - ";
 			std::cin >> s;
+			PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 			try
 			{
 				t = std::stoi(s);
@@ -73,12 +76,14 @@ public:
 			{
 				std::cout << "If you would like player " << i + 1 << " to be a human player please input 1.\nOtherwise input any other int for a bot. - ";
 				std::cin >> s;
+				PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 				try
 				{
 					t = std::stoi(s);
 					r.at(i) = t;
 					std::cout << "What is this players name? - ";
 					std::cin >> n.at(i);
+					PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 					cont = true;
 				}
 				catch (std::invalid_argument& e)

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <windows.h>
+#include <mmsystem.h>
 class Dice
 {
 public:
@@ -93,6 +95,8 @@ public:
 				list[6][i] = " --------- ";
 			}
 		} // End of For Loop
+
+		PlaySound(TEXT("DiceRoll.wav"), NULL, SND_FILENAME /*| SND_ASYNC*/); //DiceRoll Sound Effect; SND_ASYNC is in Limbo
 
 		for (int i = 0; i < 7; i++) {
 			for (int j = 0; j < 5; j++) {

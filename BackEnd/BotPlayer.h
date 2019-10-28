@@ -1,6 +1,8 @@
 #pragma once
 #include "GenPlayer.h"
 #include <iostream>
+#include <windows.h>
+#include <mmsystem.h>
 class BotPlayer :
 	public GenPlayer
 {
@@ -12,6 +14,7 @@ public:
 		std::cout << "Player " << j + 1 << ", " << name << ", enter anything to play! - ";
 		std::string z;
 		std::cin >> z;
+		PlaySound(TEXT("MenuCursor.wav"), NULL, SND_FILENAME);
 
 		std::cout << std::string(100, '\n');
 		std::cout << name << ", Bot " << j + 1 << ", will now take turn " << i + 1 << "\n\n";
